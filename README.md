@@ -11,8 +11,11 @@ This repo is made for learning how Cloud Support Engineers solve daily tickets.
 
 ## How to Run
 pip install boto3
+
 python ec2_check.py
+
 python s3_check.py
+
 python iam_check.py
 
 ## What I Learned
