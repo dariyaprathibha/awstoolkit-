@@ -1,9 +1,12 @@
 import boto3
 
-# Simple EC2 status checker for support
+# Connect to EC2
 ec2 = boto3.client('ec2', region_name='ap-south-1')
+
+# List all EC2 instances
 response = ec2.describe_instances()
 
-for r in response['Reservations']:
-    for inst in r['Instances']:
-        print(f"ID: {inst['InstanceId']} - State: {inst['State']['Name']}")
+print("--- EC2 Instance Status ---")
+for reservation in response['Reservations']:
+    for instance in reservation['Instances']:
+        print(f"ID: {instance['InstanceId']} | State: {instance['State']['Name']}")
